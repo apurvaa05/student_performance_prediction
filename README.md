@@ -78,8 +78,11 @@ http://127.0.0.1:5000/
 
 ## 📸 Screenshots
 
-images/home.png
-images/result.png
+### 🖥️ Home Page
+![Home](images/home.png)
+
+### 📊 Prediction Result
+![Result](images/result.png)
 
 ---
 
