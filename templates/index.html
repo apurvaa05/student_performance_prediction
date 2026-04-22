@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Grade Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🎓 Student Performance Predictor</h1>
+    <p>Predict final grade using ML</p>
+
+    <form action="/predict" method="post">
+
+        <div class="input-group">
+            <label>Gender</label>
+            <select name="gender" required>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Previous Grade</label>
+            <input type="number" name="previous_grade" required>
+        </div>
+
+        <div class="input-group">
+            <label>Extracurricular Activities (0–3)</label>
+            <input type="number" name="extracurricular" min="0" max="3" required>
+        </div>
+
+        <div class="input-group">
+            <label>Parental Support</label>
+            <select name="parental_support" required>
+                <option value="0">Low</option>
+                <option value="1">Medium</option>
+                <option value="2">High</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Online Classes Taken</label>
+            <select name="online_classes" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Average Study Hours</label>
+            <input type="number" step="0.1" name="avg_study_hours" required>
+        </div>
+
+        <div class="input-group">
+            <label>Average Attendance (%)</label>
+            <input type="number" step="0.1" name="avg_attendance" required>
+        </div>
+
+        <button type="submit">Predict Grade</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="result">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
